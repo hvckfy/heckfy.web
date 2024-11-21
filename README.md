@@ -14,14 +14,14 @@ heckfyweb.site/
 │ ├── go.sum # Go dependencies
 │ ├── web.go # Main application file
 │ └── internal/ # Internal packages
-│ ├── rql/ # Request Limiter package
-│ │ └── rqlconstantas.go # Constants for RQL package
-│ ├── saveshare/ # Pastebin-like application package
-│ │ └── saveshareconstantas.go # Constants for SaveShare package
-│ ├── tinyfy/ # URL shortening application package
-│ │ └── tinyfyconstantas.go # Constants for Tinyfy package
-│ └── home/ # Home page request handlers
-│ └── notfound_navigate/ # Handlers for not found/navigate pages
+│   ├── rql/ # Request Limiter package
+│   │ └── rqlconstantas.go # Constants for RQL package
+│   ├── saveshare/ # Pastebin-like application package
+│   │ └── saveshareconstantas.go # Constants for SaveShare package
+│   ├── tinyfy/ # URL shortening application package
+│   │ └── tinyfyconstantas.go # Constants for Tinyfy package
+│   └── home/ # Home page request handlers
+│   └── notfound_navigate/ # Handlers for not found/navigate pages
 ├── tarantool_heckfy_shard1/ # Tarantool shard 1 configuration
 ├── tarantool_rql_shard1/ # Tarantool RQL shard configuration
 ├── tarantool_saveshare_shard1/ # Tarantool SaveShare shard configuration
