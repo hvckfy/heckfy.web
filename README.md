@@ -5,7 +5,7 @@ Welcome to the Heckfy Web project! This repository contains the source code and 
 ## Project Structure
 
 The main folder `heckfyweb.site` contains the following directories and files:
-
+```
 heckfyweb.site/
 ├── html/ # Contains HTML files for the website
 ├── images/ # Contains images used in the website
@@ -26,7 +26,7 @@ heckfyweb.site/
 ├── tarantool_rql_shard1/ # Tarantool RQL shard configuration
 ├── tarantool_saveshare_shard1/ # Tarantool SaveShare shard configuration
 └── heckfy.ru # Nginx configuration file
-
+```
 
 ## Features
 
