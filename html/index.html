@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Your Page</title>
+    <style>
+        .chat-widget {
+            position: fixed; /* Keep fixed so it stays on the screen */
+            bottom: 20px;
+            right: 20px;
+            width: 300px; /* Width of the chat window */
+            height: 500px; /* Height of the chat window */
+            border: 1px solid #ccc;
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            z-index: 1000;
+            display: none; /* Hide chat by default */
+        }
+        .chat-header {
+            background-color: #0088cc;
+            color: white;
+            padding: 10px;
+            text-align: center;
+            position: relative; /* For positioning the close button */
+            cursor: move; /* Change cursor to "move" */
+            box-sizing: border-box; /* Include padding in total height */
+        }
+        .close-button {
+            position: absolute;
+            top: 5px;
+            right: 10px; /* Increase margin from the right edge */
+            background: none;
+            border: none;
+            color: white;
+            font-size: 16px;
+            cursor: pointer;
+        }
+        .open-chat-button {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            background-color: #0088cc;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            padding: 10px 15px;
+            cursor: pointer;
+            z-index: 999; /* Below the chat widget */
+            opacity: 1; /* Button is visible by default */
+            pointer-events: auto; /* Enable interaction with the button */
+            transition: opacity 0.3s; /* Smooth transition for visibility */
+        }
+        .open-chat-button.hidden {
+            opacity: 0; /* Hide the button */
+            pointer-events: none; /* Disable interaction with the button */
+        }
+        iframe {
+            width: 100%; /* Takes 100% width of the parent */
+            height: calc(100% - 40px); /* Account for header height */
+            border: none;
+            box-sizing: border-box; /* Include padding and borders in total height */
+        }
+    </style>
+</head>
+<body>
+
+    <div class="chat-widget" id="chatWidget">
+        <div class="chat-header" id="chatHeader">
+            chat /w heckfy
+            <button class="close-button" onclick="closeChat()">✖</button>
+        </div>
+        <iframe src="chat.html" title="Chat Window"></iframe> <!-- Load chat.html -->
+    </div>
+
+    <button class="open-chat-button" id="openChatButton" onclick="openChat()">Open Chat</button>
+
+    <script src="openchat.js"></script> <!-- Include external JavaScript file -->
+
+</body>
+</html>

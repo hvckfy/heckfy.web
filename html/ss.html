@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Code Viewer</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.65.5/codemirror.min.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.65.5/codemirror.min.js"></script>
+    
+    <!-- Include modes for various languages -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.65.5/mode/javascript/javascript.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.65.5/mode/python/python.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.65.5/mode/xml/xml.min.js"></script> <!-- For HTML -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.65.5/mode/css/css.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.65.5/mode/clike/clike.min.js"></script> <!-- For Java and C/C++ -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.65.5/mode/go/go.min.js"></script> <!-- For Go -->
+
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            background-color: #f0f0f0;
+            padding: 20px;
+            color: #333;
+        }
+        h1 {
+            color: #007bff;
+        }
+        .code-container {
+            background-color: #fff;
+            padding: 15px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            overflow: auto;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+        }
+        .CodeMirror {
+            height: auto; /* Adjust height as needed */
+            border: none; /* Remove border */
+        }
+    </style>
+</head>
+<body>
+    <h1>Code Viewer</h1>
+    <div class="code-container">
+        <textarea id="code" name="code">{{.}}</textarea>
+    </div>
+
+    <script>
+        // Initialize CodeMirror
+        const codeMirror = CodeMirror.fromTextArea(document.getElementById('code'), {
+            lineNumbers: true,
+            mode: 'text/x-go', // Set mode to Go (change as needed)
+            theme: 'default', // You can change the theme here
+            lineWrapping: true,
+        });
+    </script>
+</body>
+</html>

@@ -1,0 +1,14 @@
+[Unit]
+Description=My Go Web Server
+After=network.target
+
+[Service]
+ExecStart=/path/to/server/dirr/web--debug
+Restart=always
+User=root
+Group=root
+StartLimitIntervalSec=0
+StartLimitBurst=10
+
+[Install]
+WantedBy=multi-user.target

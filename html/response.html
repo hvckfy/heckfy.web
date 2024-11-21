@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Shortened Link</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4; /* Light background */
+            color: #333; /* Dark text */
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            height: 100vh; /* Full height */
+            margin: 0; /* Remove default margin */
+            text-align: center; /* Center text */
+        }
+        h1 {
+            color: #3498db; /* Blue color for header */
+            margin-bottom: 20px; /* Space below header */
+        }
+        p {
+            margin: 10px 0; /* Space above and below paragraphs */
+        }
+        .shortened-link {
+            display: inline-block;
+            padding: 10px 15px;
+            background-color: #fff; /* White background */
+            border: 1px solid #ddd; /* Light border */
+            border-radius: 5px; /* Rounded corners */
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); /* Subtle shadow */
+            text-decoration: none; /* Remove underline */
+            color: #3498db; /* Blue color for link */
+            transition: background-color 0.3s; /* Smooth background change */
+        }
+        .shortened-link:hover {
+            background-color: #f0f0f0; /* Light gray on hover */
+        }
+        .copy-button {
+            margin-left: 10px;
+            padding: 5px 10px;
+            background-color: #4CAF50; /* Green background */
+            color: white; /* White text */
+            border: none; /* No border */
+            border-radius: 5px; /* Rounded corners */
+            cursor: pointer; /* Pointer cursor on hover */
+            transition: background-color 0.3s; /* Smooth background change */
+        }
+        .copy-button:hover {
+            background-color: #45a049; /* Darker green on hover */
+        }
+        .back-link {
+            margin-top: 20px; /* Space above the back link */
+            text-decoration: none; /* Remove underline */
+            color: #3498db; /* Blue color for back link */
+            font-size: 16px; /* Font size */
+        }
+        .back-link:hover {
+            text-decoration: underline; /* Underline on hover */
+        }
+        .home-button {
+            margin-top: 20px; /* Space above the home button */
+            padding: 10px 15px;
+            background-color: #3498db; /* Blue background */
+            color: white; /* White text */
+            border: none; /* No border */
+            border-radius: 5px; /* Rounded corners */
+            cursor: pointer; /* Pointer cursor on hover */
+            transition: background-color 0.3s; /* Smooth background change */
+        }
+        .home-button:hover {
+            background-color: #2980b9; /* Darker blue on hover */
+        }
+    </style>
+    <script>
+        function copyToClipboard() {
+            const shortenedLink = document.getElementById("shortenedLink").getAttribute("data-full-link");
+            const textarea = document.createElement("textarea");
+            textarea.value = shortenedLink;
+            document.body.appendChild(textarea);
+            textarea.select();
+            textarea.setSelectionRange(0, 99999); // For mobile devices
+            document.execCommand("copy");
+            document.body.removeChild(textarea);
+            alert("Link copied to clipboard!");
+        }
+    </script>
+</head>
+<body>
+    <h1>Your Shortened Link</h1>
+    <p>
+        Your shortened link: 
+        <a id="shortenedLink" class="shortened-link" href="{{.ShortenedLink}}" target="_blank" data-full-link="https://heckfy.ru/{{.ShortenedLink}}">{{.ShortenedLink}}</a>
+        <button class="copy-button" onclick="copyToClipboard()">Copy to Clipboard</button>
+    </p>
+    <p>
+        <a class="back-link" href="/tinyfy">Shorten another link</a>
+    </p>
+    <button class="home-button" onclick="window.location.href='/home'">Return to Home</button>
+</body>
+</html>

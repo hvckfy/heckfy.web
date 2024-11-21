@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SaveShare</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.65.5/codemirror.min.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.65.5/codemirror.min.js"></script>
+    
+    <!-- Include modes for various languages -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.65.5/mode/javascript/javascript.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.65.5/mode/python/python.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.65.5/mode/xml/xml.min.js"></script> <!-- For HTML -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.65.5/mode/css/css.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.65.5/mode/clike/clike.min.js"></script> <!-- For Java and C/C++ -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.65.5/mode/go/go.min.js"></script> <!-- For Go -->
+
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            background-color: #ffffff; /* Светлый фон */
+            color: #333333; /* Темный текст */
+            margin: 0;
+            display: flex;
+            flex-direction: column;
+            height: 100vh;
+            padding: 20px; /* Добавляем отступы для удобства */
+        }
+        h1 {
+            margin-bottom: 20px;
+            font-size: 2.5em;
+            text-align: left; /* Выравнивание заголовка влево */
+            color: #007bff; /* Цвет заголовка */
+        }
+        .CodeMirror {
+            height: calc(100vh - 200px);
+            border: 1px solid #ccc; /* Светлая рамка */
+            border-radius: 8px;
+            background-color: #f9f9f9; /* Светлый фон редактора */
+            color: #333333; /* Темный текст */
+        }
+        button {
+            background-color: #007bff; /* Цвет кнопки */
+            color: #ffffff; /* Белый текст на кнопке */
+            border: none;
+            border-radius: 5px;
+            padding: 10px 20px;
+            font-size: 1em;
+            cursor: pointer;
+            transition: background-color 0.3s;
+            margin-top: 10px;
+            align-self: flex-start; /* Сдвигаем кнопку влево */
+        }
+        button:hover {
+            background-color: #0056b3; /* Темнее при наведении */
+        }
+        form {
+            width: 100%;
+            max-width: 800px; /* Ограничиваем ширину формы */
+            text-align: left; /* Выравнивание текста формы влево */
+        }
+    </style>
+</head>
+<body>
+    <h1>CodeMirror SaveShare</h1>
+    <form id="codeForm" action="/submit" method="POST">
+        <div id="editor"></div>
+        <button type="submit">Submit</button>
+    </form>
+
+    <script>
+        // Initialize CodeMirror with Go mode
+        const editor = CodeMirror(document.getElementById('editor'), {
+            lineNumbers: true,
+            mode: 'text/x-go', // Set mode to Go
+            theme: 'default',
+            lineWrapping: true,
+            indentUnit: 4,
+        });
+
+        // Form submission handler
+        document.getElementById('codeForm').addEventListener('submit', function(event) {
+            event.preventDefault();
+            const code = editor.getValue();
+            const input = document.createElement('input');
+            input.type = 'hidden';
+            input.name = 'data';
+            input.value = code;
+            this.appendChild(input);
+            this.submit();
+        });
+    </script>
+</body>
+</html>
