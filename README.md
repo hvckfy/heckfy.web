@@ -22,7 +22,7 @@ heckfyweb.site/
 │   │ └── tinyfyconstantas.go # Constants for Tinyfy package
 │   └── home/ # Home page request handlers
 │   └── notfound_navigate/ # Handlers for not found/navigate pages
-├── tarantool_heckfy_shard1/ # Tarantool shard 1 configuration
+├── tarantool_heckfy_shard1/ # Tarantool Tinyfy shard configuration
 ├── tarantool_rql_shard1/ # Tarantool RQL shard configuration
 ├── tarantool_saveshare_shard1/ # Tarantool SaveShare shard configuration
 └── heckfy.ru # Nginx configuration file
